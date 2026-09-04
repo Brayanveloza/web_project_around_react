@@ -1,75 +1,98 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Proyecto **Around The U.S.** desarrollado con **React, TypeScript y Vite**.
 
-Currently, two official plugins are available:
+Este proyecto parte de una versión anterior desarrollada con **HTML, CSS y JavaScript**, la cual fue migrada progresivamente a una aplicación basada en componentes de React y tipado con TypeScript.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 📌 Descripción del proyecto
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Around The U.S.** es una aplicación web que representa una red social para compartir fotografías de diferentes lugares de Estados Unidos.
 
-## Expanding the ESLint configuration
+El proyecto permite visualizar:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Perfil del usuario.
+- Nombre y descripción del usuario.
+- Avatar.
+- Tarjetas con diferentes lugares.
+- Imágenes de las tarjetas.
+- Botones de edición, eliminación y "Me gusta". (Todavia no en uso real)
+- Ventanas emergentes (popups).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+En esta etapa del proyecto, el objetivo principal fue realizar la migración de la aplicación anterior hacia **React vite**, organizando la interfaz mediante componentes reutilizables.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# 🚀 Tecnologías utilizadas
 
-```
+- React
+- TypeScript
+- Vite
+- HTML5
+- Git
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+# 🏗️ Inicio del proyecto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+El proyecto se inició utilizando **Vite** para crear una aplicación de React con TypeScript.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Primero se creó el proyecto utilizando:
 
-```
+- npm create vite@latest .
+
+Después se instalaron las dependencias:
+
+- npm install
+
+Finalmente, el proyecto podía ejecutarse con:
+
+- npm run dev
+
+# 🏗️ Proceso de migración
+Transferencia del HTML → El marcado original se convirtió a JSX/TSX en App.tsx.
+
+Adaptación a React → Se ajustaron atributos (class → className, cierre de etiquetas, props tipadas).
+
+Organización de estilos → Se trasladaron los CSS en bloques (page.css, cards.css, popup.css, etc.) y se importaron en index.css.
+
+Gestión de imágenes → Se usan importaciones de módulos (import logo from "./images/logo.svg").
+
+Componentización → La interfaz se dividió en componentes reutilizables:
+
+Header
+
+Main (perfil, tarjetas, popups)
+
+Card (tarjeta individual)
+
+Popup (estructura base)
+
+ImagePopup (visualización de imágenes)
+
+Footer
+
+Tipado con TypeScript → Se definieron tipos para CardData y PopupConfig, asegurando consistencia en props y estados.
+
+Comunicación entre componentes → Se usan props para pasar datos y funciones entre App, Main, Card y Popup.
+
+Popups reutilizables → Se controlan con estado (isOpen, onClose, title, children).
+
+Funcionalidades futuras → Botones de “Me gusta” y eliminación preparados, pero aún sin lógica implementada.
+
+
+🎯 Objetivos de aprendizaje
+Migrar un proyecto clásico a React + TypeScript.
+
+Manejo de JSX/TSX y props.
+
+Organización modular de componentes y estilos.
+
+Uso de Vite para desarrollo y build.
+
+Tipado de datos con TypeScript.
+
+Implementación de popups reutilizables y comunicación entre componentes.
+
+👨‍💻 Autor
+
+Brayan Steven Veloza Cruz
